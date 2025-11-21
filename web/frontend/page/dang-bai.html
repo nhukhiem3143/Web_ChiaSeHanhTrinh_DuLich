@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Bài Viết - Website Du Lịch</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/dang-bai.css">
+    <link rel="icon" href="/uploads/icon.jpg" type="image/jpeg">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="logo">🌴 Du Lịch</a>
+            <ul class="nav-links">
+                <li><a href="/">Trang Chủ</a></li>
+                <li><a href="/dang-bai" class="active">Đăng Bài</a></li>
+            </ul>
+            <div class="user-menu" id="userMenu"></div>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="create-post-container">
+            <div class="create-post-header">
+                <h1>Đăng Bài Viết Mới</h1>
+                <p style="color: var(--text-secondary);">Chia sẻ trải nghiệm du lịch của bạn với cộng đồng</p>
+            </div>
+            
+            <form id="dang-bai-form" class="create-post-form">
+                <!-- Basic Info Section -->
+                <div class="form-section">
+                    <h2 class="form-section-title">📝 Thông Tin Cơ Bản</h2>
+                    
+                    <div class="form-group">
+                        <label for="tieu_de">Tiêu Đề *</label>
+                        <input type="text" id="tieu_de" name="tieu_de" placeholder="Ví dụ: Khám phá Đà Lạt 3 ngày 2 đêm" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mo_ta_ngan">Mô Tả Ngắn</label>
+                        <input type="text" id="mo_ta_ngan" name="mo_ta_ngan" placeholder="Tóm tắt ngắn gọn về chuyến đi...">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="noi_dung">Nội Dung Chi Tiết *</label>
+                        <textarea id="noi_dung" name="noi_dung" placeholder="Chia sẻ chi tiết về hành trình, cảm nhận, kinh nghiệm..." required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="anh_bia">Ảnh Bìa</label>
+                        <input type="file" id="anh_bia" name="anh_bia" accept="image/*" onchange="previewImage(this)">
+                        <div id="image-preview-container" class="image-preview-container"></div>
+                    </div>
+                </div>
+                
+                <!-- Category/Danh mục Section -->
+                <div class="form-section">
+                    <h2 class="form-section-title">🏷️ Danh Mục</h2>
+                    <div class="category-selector">
+                        <label class="category-chip">
+                            <input type="checkbox" name="category" value="trong-nuoc">
+                            <span>Trong nước</span>
+                        </label>
+                        <label class="category-chip">
+                            <input type="checkbox" name="category" value="nuoc-ngoai">
+                            <span>Nước ngoài</span>
+                        </label>
+                        <label class="category-chip">
+                            <input type="checkbox" name="category" value="an-uong">
+                            <span>Ẩm thực</span>
+                        </label>
+                        <label class="category-chip">
+                            <input type="checkbox" name="category" value="khach-san">
+                            <span>Khách sạn</span>
+                        </label>
+                        <label class="category-chip">
+                            <input type="checkbox" name="category" value="phuong-tien">
+                            <span>Phương tiện</span>
+                        </label>
+                        <label class="category-chip">
+                            <input type="checkbox" name="category" value="tham-quan">
+                            <span>Tham quan</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Date & Cost Section -->
+                <div class="form-section">
+                    <h2 class="form-section-title">📅 Thời Gian & Chi Phí</h2>
+                    
+                    <div class="date-range">
+                        <div class="form-group">
+                            <label for="ngay_bat_dau">Ngày Bắt Đầu</label>
+                            <input type="date" id="ngay_bat_dau" name="ngay_bat_dau">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="ngay_ket_thuc">Ngày Kết Thúc</label>
+                            <input type="date" id="ngay_ket_thuc" name="ngay_ket_thuc">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="tong_chi_phi">Tổng Chi Phí (VNĐ)</label>
+                        <input type="number" id="tong_chi_phi" name="tong_chi_phi" step="1000" placeholder="Ví dụ: 5000000">
+                    </div>
+                </div>
+                
+                <!-- Location/Địa điểm Section -->
+                <div class="form-section">
+                    <h2 class="form-section-title">📍 Địa Điểm & Bản Đồ</h2>
+                    <div id="dia-diem-container"></div>
+                    <button type="button" class="add-dia-diem-btn" onclick="addDiaDiem()">
+                        + Thêm Địa Điểm
+                    </button>
+                </div>
+                
+                <!-- Travel Info - Phương tiện, Khách sạn, Đồ ăn -->
+                <div class="form-section">
+                    <h2 class="form-section-title">🚗 Phương Tiện & Dịch Vụ</h2>
+                    
+                    <div id="phuong-tien-container" class="travel-info-section">
+                        <h3 class="travel-info-title">🚗 Phương Tiện Đi Lại</h3>
+                        <div id="phuong-tien-list"></div>
+                        <button type="button" class="add-travel-info-btn" onclick="addPhuongTien()">
+                            + Thêm Phương Tiện
+                        </button>
+                    </div>
+                    
+                    <div id="khach-san-container" class="travel-info-section" style="margin-top: var(--spacing-lg);">
+                        <h3 class="travel-info-title">🏨 Khách Sạn/Nơi Ở</h3>
+                        <div id="khach-san-list"></div>
+                        <button type="button" class="add-travel-info-btn" onclick="addKhachSan()">
+                            + Thêm Khách Sạn
+                        </button>
+                    </div>
+                    
+                    <div id="do-an-container" class="travel-info-section" style="margin-top: var(--spacing-lg);">
+                        <h3 class="travel-info-title">🍜 Đồ Ăn & Quán Ăn</h3>
+                        <div id="do-an-list"></div>
+                        <button type="button" class="add-travel-info-btn" onclick="addDoAn()">
+                            + Thêm Quán Ăn
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Hashtag Section -->
+                <div class="form-section">
+                    <h2 class="form-section-title"># Hashtag</h2>
+                    <div class="form-group">
+                        <input type="text" id="hashtag" name="hashtag" placeholder="Nhập hashtag và nhấn Enter (ví dụ: dalat, travel)">
+                        <div id="hashtag-tags" class="hashtag-tags"></div>
+                    </div>
+                </div>
+                
+                <!-- Submit Section -->
+                <div class="submit-section">
+                    <button type="button" class="cancel-btn" onclick="window.location.href='/'">Hủy</button>
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <span id="submitText">Đăng Bài</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Website Du Lịch. Tất cả quyền được bảo lưu.</p>
+    </footer>
+
+    <script src="/js/dang-bai.js"></script>
+    <script src="/js/auth-check.js"></script>
+    <script>
+        // Preview image
+        function previewImage(input) {
+            const container = document.getElementById('image-preview-container');
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    container.innerHTML = `<img src="${e.target.result}" class="image-preview" alt="Preview">`;
+                };
+                reader.readAsDataURL(input.files[0]);
+            } else {
+                container.innerHTML = '';
+            }
+        }
+        
+        // Category selector
+        document.querySelectorAll('.category-chip').forEach(chip => {
+            chip.addEventListener('click', function() {
+                const checkbox = this.querySelector('input[type="checkbox"]');
+                checkbox.checked = !checkbox.checked;
+                this.classList.toggle('selected', checkbox.checked);
+            });
+        });
+        
+        // Hashtag input
+        let hashtags = [];
+        document.getElementById('hashtag').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                const hashtag = this.value.trim().toLowerCase();
+                if (hashtag && !hashtags.includes(hashtag)) {
+                    hashtags.push(hashtag);
+                    this.value = '';
+                    updateHashtagTags();
+                }
+            }
+        });
+        
+        function updateHashtagTags() {
+            const container = document.getElementById('hashtag-tags');
+            container.innerHTML = hashtags.map(tag => `
+                <span class="hashtag-tag">
+                    #${tag}
+                    <span class="hashtag-remove" onclick="removeHashtag('${tag}')">×</span>
+                </span>
+            `).join('');
+        }
+        
+        function removeHashtag(tag) {
+            hashtags = hashtags.filter(t => t !== tag);
+            updateHashtagTags();
+        }
+        
+        // Check authentication
+        window.addEventListener('DOMContentLoaded', function() {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                alert('Vui lòng đăng nhập để đăng bài!');
+                window.location.href = '/dang-nhap';
+            }
+        });
+    </script>
+</body>
+</html>

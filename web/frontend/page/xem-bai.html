@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Viết - Website Du Lịch</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/xem-bai.css">
+    <link rel="icon" href="/uploads/icon.jpg" type="image/jpeg">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="logo">🌴 Du Lịch</a>
+            <ul class="nav-links">
+                <li><a href="/">Trang Chủ</a></li>
+                <li><a href="/dang-bai">Đăng Bài</a></li>
+            </ul>
+            <div class="user-menu" id="userMenu"></div>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="post-detail-container">
+            <!-- Post Detail Card -->
+            <article class="post-detail-card" id="postDetailCard">
+                <div class="post-header" id="postHeader">
+                    <!-- Author info and post header will be loaded here -->
+                </div>
+                
+                <div id="postImageContainer"></div>
+                
+                <div class="post-content-full" id="postContent">
+                    <!-- Post content will be loaded here -->
+                </div>
+                
+                <div class="post-meta-info" id="postMetaInfo">
+                    <!-- Post stats will be loaded here -->
+                </div>
+                
+                <div class="post-actions">
+                    <button class="post-action-btn" id="likeBtn" onclick="showReactionPicker()">
+                        <span>👍</span> <span>Thích</span>
+                    </button>
+                    <button class="post-action-btn" id="commentBtn" onclick="scrollToComments()">
+                        <span>💬</span> <span>Bình luận</span>
+                    </button>
+                    <button class="post-action-btn" id="shareBtn">
+                        <span>📤</span> <span>Chia sẻ</span>
+                    </button>
+                    <button class="post-action-btn" id="reportBtn" onclick="showReportForm()" style="color: var(--danger-color);">
+                        <span>⚠️</span> <span>Báo cáo</span>
+                    </button>
+                </div>
+                
+                <!-- Reaction Picker (Facebook style) -->
+                <div id="reactionPicker" class="reaction-picker" style="display: none;">
+                    <button class="reaction-picker-btn" onclick="toggleReaction('like')" title="Thích">
+                        <span style="font-size: 2rem;">👍</span>
+                    </button>
+                    <button class="reaction-picker-btn" onclick="toggleReaction('love')" title="Yêu thích">
+                        <span style="font-size: 2rem;">😍</span>
+                    </button>
+                    <button class="reaction-picker-btn" onclick="toggleReaction('laugh')" title="Haha">
+                        <span style="font-size: 2rem;">😆</span>
+                    </button>
+                    <button class="reaction-picker-btn" onclick="toggleReaction('cry')" title="Buồn">
+                        <span style="font-size: 2rem;">😭</span>
+                    </button>
+                    <button class="reaction-picker-btn" onclick="toggleReaction('angry')" title="Phẫn nộ">
+                        <span style="font-size: 2rem;">😠</span>
+                    </button>
+                    <button class="reaction-picker-btn" onclick="toggleReaction('dislike')" title="Không thích">
+                        <span style="font-size: 2rem;">👎</span>
+                    </button>
+                </div>
+                
+                <!-- Hashtags -->
+                <div class="hashtags-section" id="hashtagsSection" style="display: none;">
+                    <div class="hashtags-list" id="hashtagsList"></div>
+                </div>
+            </article>
+            
+                <!-- Location & Map Section -->
+                <section class="location-section" id="locationSection" style="display: none;">
+                    <h3>📍 Địa Điểm</h3>
+                    <div id="locationList"></div>
+                </section>
+
+                <section class="location-section" id="phuongTienSection" style="display: none;">
+                    <h3>🚗 Phương Tiện</h3>
+                    <div id="phuongTienList"></div>
+                </section>
+
+                <!-- Khách Sạn Section -->
+                <section class="location-section" id="khachSanSection" style="display: none;">
+                    <h3>🏨 Khách Sạn</h3>
+                    <div id="khachSanList"></div>
+                </section>
+
+                <!-- Đồ Ăn Section -->
+                <section class="location-section" id="doAnSection" style="display: none;">
+                    <h3>🍲 Đồ Ăn</h3>
+                    <div id="doAnList"></div>
+                </section>
+                <!-- HẾT PHẦN THÊM -->
+
+                <!-- Travel Info Section -->
+                <section class="travel-info-section" id="travelInfoSection" style="display: none;">
+                    <h3>🚗 Thông Tin Du Lịch</h3>
+                    <div class="travel-info-grid" id="travelInfoGrid"></div>
+                </section>
+            
+            <!-- Reactions Section -->
+            <section class="reactions-section" id="reactionsSection">
+                <h3>😊 Reactions</h3>
+                <div class="reaction-buttons" id="reactionButtons">
+                    <!-- Reaction buttons will be loaded here -->
+                </div>
+                <div class="reaction-counts" id="reactionCounts">
+                    <!-- Reaction counts will be loaded here -->
+                </div>
+            </section>
+            
+            <!-- Comments Section -->
+            <section class="comments-section" id="commentsSection">
+                <h3>💬 Bình Luận</h3>
+                <div id="commentsList" class="comments-list"></div>
+                
+                <form id="commentForm" class="comment-form">
+                    <div class="comment-input-wrapper">
+                        <textarea 
+                            id="commentInput" 
+                            class="comment-input" 
+                            placeholder="Viết bình luận..."
+                            rows="1"
+                            onkeydown="handleCommentKeydown(event)"
+                        ></textarea>
+                    </div>
+                    <button type="submit" class="comment-submit-btn" id="commentSubmitBtn">
+                        Gửi
+                    </button>
+                </form>
+            </section>
+            
+            <!-- Report Section -->
+            <section class="report-section" id="reportSection" style="display: none;">
+                <h3>⚠️ Báo Cáo Bài Viết</h3>
+                <p style="color: var(--text-secondary); margin-bottom: var(--spacing-lg);">Nếu bạn thấy bài viết này vi phạm quy tắc, vui lòng báo cáo</p>
+                
+                <form id="reportForm" class="report-form">
+                    <div class="form-group">
+                        <label>Loại Báo Cáo *</label>
+                        <select id="loaiBaoCao" name="loai_bao_cao" required>
+                            <option value="">Chọn loại báo cáo...</option>
+                            <option value="spam">Spam hoặc lừa đảo</option>
+                            <option value="noi_dung_khong_phu_hop">Nội dung không phù hợp</option>
+                            <option value="quang_cao">Quảng cáo không được phép</option>
+                            <option value="vi_pham_ban_quyen">Vi phạm bản quyền</option>
+                            <option value="khac">Khác</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lyDoBaoCao">Lý Do Chi Tiết *</label>
+                        <textarea 
+                            id="lyDoBaoCao" 
+                            name="ly_do" 
+                            placeholder="Vui lòng mô tả chi tiết lý do báo cáo..." 
+                            rows="4"
+                            required
+                            maxlength="500"
+                        ></textarea>
+                        <div class="char-count">
+                            <span id="reportCharCount">0</span>/500 ký tự
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline" onclick="closeReportForm()">Hủy</button>
+                        <button type="submit" class="btn btn-primary" id="reportSubmitBtn">
+                            <span id="reportSubmitText">Gửi Báo Cáo</span>
+                        </button>
+                    </div>
+                </form>
+            </section>
+            
+            <!-- Share Section -->
+            <section class="share-section" id="shareSection" style="display: none;">
+                <h3>📤 Chia Sẻ</h3>
+                <div class="share-count" id="shareCount">Số lượt chia sẻ: 0</div>
+                
+                <div class="share-options">
+                    <button class="share-option-btn" onclick="shareToFacebook()">
+                        <span style="font-size: 1.5rem;">📘</span>
+                        <span>Facebook</span>
+                    </button>
+                    <button class="share-option-btn" onclick="shareToInstagram()">
+                        <span style="font-size: 1.5rem;">📷</span>
+                        <span>Instagram</span>
+                    </button>
+                    <button class="share-option-btn" onclick="copyPostLink()">
+                        <span style="font-size: 1.5rem;">🔗</span>
+                        <span>Sao chép link</span>
+                    </button>
+                </div>
+                
+                <div style="margin-top: var(--spacing-lg); padding-top: var(--spacing-lg); border-top: 1px solid var(--divider-color);">
+                    <h4 style="margin-bottom: var(--spacing-md); font-size: 1rem;">Chia sẻ về tài khoản của bạn</h4>
+                    <form id="shareForm" class="share-form">
+                        <textarea 
+                            id="shareTextarea" 
+                            class="share-textarea" 
+                            placeholder="Viết gì đó về bài viết này..."
+                            rows="3"
+                        ></textarea>
+                        <button type="submit" class="share-submit-btn" id="shareSubmitBtn">
+                            Chia Sẻ
+                        </button>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Website Du Lịch. Tất cả quyền được bảo lưu.</p>
+    </footer>
+
+    <script src="/js/xem-bai.js"></script>
+    <script src="/js/auth-check.js"></script>
+    <script>
+        // Handle comment input auto-resize and Enter key
+        document.addEventListener('DOMContentLoaded', function() {
+            const commentInput = document.getElementById('commentInput');
+            if (commentInput) {
+                commentInput.addEventListener('input', function() {
+                    this.style.height = 'auto';
+                    this.style.height = (this.scrollHeight) + 'px';
+                });
+                
+                commentInput.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' && !e.shiftKey) {
+                        e.preventDefault();
+                        document.getElementById('commentForm').dispatchEvent(new Event('submit'));
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

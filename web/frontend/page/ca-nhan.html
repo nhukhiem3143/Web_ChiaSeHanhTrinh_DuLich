@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Cá Nhân - Website Du Lịch</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/ca-nhan.css">
+    <link rel="icon" href="/uploads/icon.jpg" type="image/jpeg">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="logo">🌴 Du Lịch</a>
+            <ul class="nav-links">
+                <li><a href="/">Trang Chủ</a></li>
+                <li><a href="/dang-bai">Đăng Bài</a></li>
+            </ul>
+            <div class="user-menu" id="userMenu"></div>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="profile-container">
+            <!-- Profile Header -->
+            <section class="profile-header" id="profileHeader">
+                <div class="profile-info" id="profileInfo">
+                    <div class="profile-avatar" id="profileAvatar">
+                        <div class="avatar-placeholder">👤</div>
+                    </div>
+                    <div class="profile-details">
+                        <h1 class="profile-name" id="profileName">Đang tải...</h1>
+                        <div class="profile-username" id="profileUsername">@username</div>
+                        <div class="profile-bio" id="profileBio"></div>
+                        <div class="profile-stats" id="profileStats">
+                            <div class="stat-item">
+                                <div class="stat-value" id="statPosts">0</div>
+                                <div class="stat-label">Bài viết</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value" id="statViews">0</div>
+                                <div class="stat-label">Lượt xem</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value" id="statFollowers">0</div>
+                                <div class="stat-label">Người theo dõi</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Edit Profile Section -->
+            <section class="edit-profile-section">
+                <div class="edit-profile-header">
+                    <h2>Chỉnh Sửa Hồ Sơ</h2>
+                    <button class="btn btn-outline" onclick="toggleEditForm()" id="toggleEditBtn">
+                        <span id="toggleEditIcon">✏️</span> Chỉnh sửa
+                    </button>
+                </div>
+                
+                <form id="edit-profile-form" class="edit-profile-form" style="display: none;">
+                    <div class="form-group">
+                        <label for="anh_dai_dien">Ảnh Đại Diện</label>
+                        <div class="file-input-wrapper">
+                            <input type="file" id="anh_dai_dien" name="anh_dai_dien" accept="image/*" onchange="previewAvatar(this)">
+                            <label for="anh_dai_dien" class="file-input-label">
+                                <span>📷</span> Chọn ảnh đại diện
+                            </label>
+                        </div>
+                        <div id="avatar-preview-container" class="avatar-preview-container"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="tieu_su">Tiểu Sử</label>
+                        <textarea id="tieu_su" name="tieu_su" placeholder="Giới thiệu về bản thân..." rows="4" maxlength="500"></textarea>
+                        <div class="char-count">
+                            <span id="bioCharCount">0</span>/500 ký tự
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline" onclick="toggleEditForm()">Hủy</button>
+                        <button type="submit" class="btn btn-primary" id="updateBtn">
+                            <span id="updateBtnText">Cập Nhật</span>
+                        </button>
+                    </div>
+                </form>
+            </section>
+            
+            <!-- My Posts Section -->
+            <section class="profile-posts-section">
+                <div class="section-header">
+                    <h2>📝 Bài Viết Của Bạn</h2>
+                    <div id="postsCount" class="posts-count">0 bài viết</div>
+                </div>
+
+                <div id="loading-posts" class="loading" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Đang tải bài viết...</p>
+                </div>
+
+                <div id="empty-posts" class="empty-state" style="display: none;">
+                    <div class="empty-state-icon">📭</div>
+                    <h3>Chưa có bài viết nào</h3>
+                    <p>Bắt đầu chia sẻ trải nghiệm du lịch của bạn!</p>
+                    <a href="/dang-bai" class="btn btn-primary mt-3">Đăng Bài Ngay</a>
+                </div>
+
+                <div id="bai-viet-ca-nhan" class="profile-posts-grid">
+                    <!-- Posts will be loaded here -->
+                </div>
+            </section>
+
+            <!-- My Reports Section -->
+            <section class="profile-reports-section">
+                <div class="section-header">
+                    <h2>🚨 Báo Cáo Của Bạn</h2>
+                    <div id="reportsCount" class="posts-count">0 báo cáo</div>
+                </div>
+
+                <div id="loading-reports" class="loading" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Đang tải báo cáo...</p>
+                </div>
+
+                <div id="empty-reports" class="empty-state" style="display: none;">
+                    <div class="empty-state-icon">✅</div>
+                    <h3>Chưa có báo cáo nào</h3>
+                    <p>Bạn chưa báo cáo bài viết nào.</p>
+                </div>
+
+                <div id="bao-cao-ca-nhan" class="reports-list"></div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Website Du Lịch. Tất cả quyền được bảo lưu.</p>
+    </footer>
+
+    <script src="/js/ca-nhan.js"></script>
+    <script src="/js/auth-check.js"></script>
+    <script>
+        // Preview avatar
+        function previewAvatar(input) {
+            const container = document.getElementById('avatar-preview-container');
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    container.innerHTML = `<img src="${e.target.result}" class="avatar-preview" alt="Preview">`;
+                };
+                reader.readAsDataURL(input.files[0]);
+            } else {
+                container.innerHTML = '';
+            }
+        }
+        
+        // Toggle edit form
+        function toggleEditForm() {
+            const form = document.getElementById('edit-profile-form');
+            const btn = document.getElementById('toggleEditBtn');
+            const icon = document.getElementById('toggleEditIcon');
+            
+            if (form.style.display === 'none' || !form.style.display) {
+                form.style.display = 'block';
+                btn.innerHTML = '<span>✕</span> Đóng';
+                form.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            } else {
+                form.style.display = 'none';
+                btn.innerHTML = '<span>✏️</span> Chỉnh sửa';
+            }
+        }
+        
+        // Character count for bio
+        document.getElementById('tieu_su').addEventListener('input', function(e) {
+            const count = e.target.value.length;
+            document.getElementById('bioCharCount').textContent = count;
+        });
+        
+        // Check authentication
+        window.addEventListener('DOMContentLoaded', function() {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                alert('Vui lòng đăng nhập để xem trang cá nhân!');
+                window.location.href = '/dang-nhap';
+            }
+        });
+    </script>
+</body>
+</html>

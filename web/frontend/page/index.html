@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Chủ - Website Du Lịch</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/trang-chu.css">
+    <link rel="icon" href="/uploads/icon.jpg" type="image/jpeg">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="logo">🌴 Du Lịch</a>
+            <ul class="nav-links">
+                <li><a href="/" class="active">Trang Chủ</a></li>
+                <li><a href="/dang-bai">Đăng Bài</a></li>
+            </ul>
+            <div class="user-menu" id="userMenu">
+                <a href="/dang-nhap" class="btn btn-outline">Đăng Nhập</a>
+                <a href="/dang-ky" class="btn btn-primary">Đăng Ký</a>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="hero-section">
+            <h1 class="hero-title">Khám Phá Thế Giới Cùng Nhau</h1>
+            <p class="hero-subtitle">Chia sẻ những trải nghiệm du lịch tuyệt vời và khám phá các điểm đến mới lạ</p>
+        </section>
+
+        <section class="search-section">
+            <div class="search-bar">
+                <input 
+                    type="text" 
+                    id="search-input" 
+                    class="search-input" 
+                    placeholder="Tìm kiếm theo tiêu đề, hashtag, địa điểm..."
+                >
+                <button onclick="searchByKeyword()" class="search-btn">
+                    <span>🔍</span> Tìm kiếm
+                </button>
+            </div>
+            <div class="category-filters" id="categoryFilters">
+                <button class="category-filter active" data-category="all" onclick="filterByCategory('all')">Tất cả</button>
+                <button class="category-filter" data-category="hoat_dong" onclick="filterByCategory('hoat_dong')">Hoạt động</button>
+                <button class="category-filter" data-category="nghi_ngoi" onclick="filterByCategory('nghi_ngoi')">Nghỉ ngơi</button>
+                <button class="category-filter" data-category="an_uong" onclick="filterByCategory('an_uong')">Ẩm thực</button>
+                <button class="category-filter" data-category="tham_quan" onclick="filterByCategory('tham_quan')">Tham quan</button>
+            </div>
+        </section>
+
+        <section class="posts-section">
+            <div id="loading-posts" class="loading-posts" style="display: none;">
+                <div class="loading-card"></div>
+                <div class="loading-card"></div>
+                <div class="loading-card"></div>
+            </div>
+            <div id="bai-viet-list" class="posts-grid"></div>
+            <div id="empty-state" class="empty-state" style="display: none;">
+                <div class="empty-state-icon">📭</div>
+                <h3>Chưa có bài viết nào</h3>
+                <p>Hãy là người đầu tiên chia sẻ trải nghiệm du lịch của bạn!</p>
+                <a href="/dang-bai" class="btn btn-primary mt-3">Đăng Bài Ngay</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Website Du Lịch. Tất cả quyền được bảo lưu.</p>
+    </footer>
+
+    <script src="/js/trang-chu.js"></script>
+    <script src="/js/auth-check.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập - Website Du Lịch</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/auth.css">
+    <link rel="icon" href="/uploads/icon.jpg" type="image/jpeg">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="logo">🌴 Du Lịch</a>
+            <ul class="nav-links">
+                <li><a href="/">Trang Chủ</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <h1>Đăng Nhập</h1>
+                    <p>Chào mừng bạn trở lại!</p>
+                </div>
+                
+                <form id="dang-nhap-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="ten_dang_nhap">Tên Đăng Nhập *</label>
+                        <input 
+                            type="text" 
+                            id="ten_dang_nhap" 
+                            name="ten_dang_nhap" 
+                            placeholder="Nhập tên đăng nhập của bạn"
+                            required
+                            autocomplete="username"
+                            autofocus
+                        >
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mat_khau">Mật Khẩu *</label>
+                        <div class="password-wrapper">
+                            <input 
+                                type="password" 
+                                id="mat_khau" 
+                                name="mat_khau" 
+                                placeholder="Nhập mật khẩu"
+                                required
+                                autocomplete="current-password"
+                            >
+                            <button type="button" class="eye-toggle" onclick="togglePassword('mat_khau')">👁️</button>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="auth-submit-btn">
+                        Đăng Nhập
+                    </button>
+                </form>
+                
+                <div class="auth-footer">
+                    <p>Chưa có tài khoản? <a href="/dang-ky">Đăng ký ngay</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Website Du Lịch. Tất cả quyền được bảo lưu.</p>
+    </footer>
+
+    <script src="/js/dang-nhap.js"></script>
+    <script>
+        function togglePassword(inputId) {
+            const input = document.getElementById(inputId);
+            const button = input.nextElementSibling;
+            if (input.type === 'password') {
+                input.type = 'text';
+                button.textContent = '🙈';
+            } else {
+                input.type = 'password';
+                button.textContent = '👁️';
+            }
+        }
+    </script>
+</body>
+</html>

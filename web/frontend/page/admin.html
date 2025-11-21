@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Website Du Lịch</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="icon" href="/uploads/icon.jpg" type="image/jpeg">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="logo">🌴 Du Lịch</a>
+            <ul class="nav-links">
+                <li><a href="/">Trang Chủ</a></li>
+            </ul>
+            <div class="user-menu" id="userMenu"></div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="admin-container">
+            <div class="admin-sidebar">
+                <h3>📊 Quản Lý</h3>
+                <ul class="admin-nav">
+                    <li><a href="#reports" class="active" onclick="showSection('reports')">🚨 Báo Cáo</a></li>
+                    <li><a href="#users" onclick="showSection('users')">👥 Người Dùng</a></li>
+                    <li><a href="#posts" onclick="showSection('posts')">📝 Bài Viết</a></li>
+                    <li><a href="#stats" onclick="showSection('stats')">📈 Thống Kê</a></li>
+                </ul>
+            </div>
+
+            <div class="admin-content">
+                <!-- Reports Section -->
+                <section id="reports-section" class="admin-section active">
+                    <div class="section-header">
+                        <h2>🚨 Quản Lý Báo Cáo</h2>
+                        <div id="reports-count" class="count-badge">0 báo cáo</div>
+                    </div>
+
+                    <div id="loading-reports" class="loading" style="display: none;">
+                        <div class="spinner"></div>
+                        <p>Đang tải báo cáo...</p>
+                    </div>
+
+                    <div id="reports-list" class="reports-admin-list"></div>
+                </section>
+
+                <!-- Users Section -->
+                <section id="users-section" class="admin-section">
+                    <div class="section-header">
+                        <h2>👥 Quản Lý Người Dùng</h2>
+                        <div id="users-count" class="count-badge">0 người dùng</div>
+                    </div>
+
+                    <div id="loading-users" class="loading" style="display: none;">
+                        <div class="spinner"></div>
+                        <p>Đang tải người dùng...</p>
+                    </div>
+
+                    <div id="users-list" class="users-admin-list"></div>
+                </section>
+
+                <!-- Posts Section -->
+                <section id="posts-section" class="admin-section">
+                    <div class="section-header">
+                        <h2>📝 Quản Lý Bài Viết</h2>
+                        <div id="posts-count" class="count-badge">0 bài viết</div>
+                    </div>
+
+                    <div id="loading-posts" class="loading" style="display: none;">
+                        <div class="spinner"></div>
+                        <p>Đang tải bài viết...</p>
+                    </div>
+
+                    <div id="posts-list" class="posts-admin-list"></div>
+                </section>
+
+                <!-- Stats Section -->
+                <section id="stats-section" class="admin-section">
+                    <div class="section-header">
+                        <h2>📈 Thống Kê</h2>
+                    </div>
+
+                    <div id="loading-stats" class="loading" style="display: none;">
+                        <div class="spinner"></div>
+                        <p>Đang tải thống kê...</p>
+                    </div>
+
+                    <div id="stats-content"></div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Report Modal -->
+    <div id="report-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Chi Tiết Báo Cáo</h3>
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+            </div>
+            <div id="modal-body" class="modal-body">
+                <!-- Report details will be loaded here -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModal()">Đóng</button>
+                <button class="btn btn-danger" onclick="rejectReport()">Từ Chối</button>
+                <button class="btn btn-warning" onclick="processReport()">Đang Xử Lý</button>
+                <button class="btn btn-success" onclick="resolveReport()">Đã Xử Lý</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Website Du Lịch. Tất cả quyền được bảo lưu.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/js/admin.js"></script>
+    <script src="/js/auth-check.js"></script>
+    <script>
+        // Check admin authentication
+        window.addEventListener('DOMContentLoaded', function() {
+            const token = localStorage.getItem('token');
+            const vaiTro = localStorage.getItem('vai_tro');
+
+            if (!token) {
+                alert('Vui lòng đăng nhập để truy cập trang admin!');
+                window.location.href = '/dang-nhap';
+                return;
+            }
+
+            // Check if user is admin
+            if (vaiTro !== 'admin') {
+                alert('Bạn không có quyền truy cập trang admin!');
+                window.location.href = '/';
+                return;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,487 @@
+/* ============================================
+   AUTHENTICATION PAGES - TRAVEL DESIGN
+   Đăng nhập & Đăng ký với thiết kế hiện đại
+   ============================================ */
+
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 200px);
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, rgba(13, 110, 253, 0.03) 0%, rgba(66, 165, 245, 0.03) 100%);
+}
+
+.auth-card {
+    background: #FFFFFF;
+    border-radius: 14px;
+    padding: 3rem;
+    box-shadow: 0 4px 16px rgba(13, 110, 253, 0.12);
+    width: 100%;
+    max-width: 480px;
+    animation: slideUpFade 0.6s ease-out;
+    border: 1px solid #E5E7EB;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative Background Pattern */
+.auth-card::before {
+    content: '✈️';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 10rem;
+    opacity: 0.03;
+    transform: rotate(15deg);
+}
+
+.auth-card::after {
+    content: '🗺️';
+    position: absolute;
+    bottom: -30px;
+    left: -30px;
+    font-size: 12rem;
+    opacity: 0.03;
+    transform: rotate(-15deg);
+}
+
+.auth-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.auth-header h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.25rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #0D6EFD 0%, #1A73E8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.5px;
+}
+
+.auth-header p {
+    color: #6B7280;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+}
+
+/* ============================================
+   AUTH FORM
+   ============================================ */
+.auth-form {
+    width: 100%;
+}
+
+.auth-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.auth-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #1A1A1A;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border: 2px solid #E5E7EB;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    background: #F8FAFB;
+    color: #1A1A1A;
+    font-family: 'Inter', sans-serif;
+}
+
+.auth-form input:focus {
+    outline: none;
+    border-color: #0D6EFD;
+    box-shadow: 0 0 0 4px #E7F3FF;
+    background: #FFFFFF;
+}
+
+.auth-form input::placeholder {
+    color: #9CA3AF;
+}
+
+/* Password Wrapper */
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper input {
+    padding-right: 3.5rem;
+}
+
+.eye-toggle {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #9CA3AF;
+    font-size: 1.375rem;
+    padding: 0.5rem;
+    transition: all 250ms ease;
+    z-index: 1;
+    border-radius: 6px;
+}
+
+.eye-toggle:hover {
+    color: #0D6EFD;
+    background: #E7F3FF;
+}
+
+/* Password Strength Indicator */
+.password-strength {
+    margin-top: 0.5rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    padding: 0.375rem 0.75rem;
+    border-radius: 6px;
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+}
+
+.password-strength.weak {
+    color: #EF4444;
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.password-strength.medium {
+    color: #F59E0B;
+    background: rgba(245, 158, 11, 0.1);
+}
+
+.password-strength.strong {
+    color: #10B981;
+    background: rgba(16, 185, 129, 0.1);
+}
+
+/* Submit Button */
+.auth-submit-btn {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(135deg, #0D6EFD 0%, #1A73E8 100%);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.0625rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    margin-top: 1.5rem;
+    box-shadow: 0 4px 16px rgba(13, 110, 253, 0.3);
+    font-family: 'Inter', sans-serif;
+}
+
+.auth-submit-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #0b5ed7 0%, #1557c0 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(13, 110, 253, 0.4);
+}
+
+.auth-submit-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.auth-submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ============================================
+   AUTH FOOTER
+   ============================================ */
+.auth-footer {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid #F0F2F5;
+}
+
+.auth-footer p {
+    color: #6B7280;
+    font-size: 0.9375rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.auth-footer a {
+    color: #0D6EFD;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 250ms ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.auth-footer a:hover {
+    color: #0b5ed7;
+    text-decoration: underline;
+}
+
+/* ============================================
+   ALTERNATIVE AUTH METHODS (Optional)
+   ============================================ */
+.auth-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 2rem 0;
+    color: #9CA3AF;
+    font-size: 0.875rem;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.auth-divider span {
+    padding: 0 1rem;
+}
+
+.social-auth-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.social-auth-btn {
+    flex: 1;
+    padding: 0.875rem;
+    border: 2px solid #E5E7EB;
+    border-radius: 10px;
+    background: #FFFFFF;
+    cursor: pointer;
+    transition: all 250ms ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: #1A1A1A;
+    font-family: 'Inter', sans-serif;
+}
+
+.social-auth-btn:hover {
+    background: #F8FAFB;
+    border-color: #0D6EFD;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.1);
+}
+
+.social-auth-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+/* ============================================
+   ERROR & SUCCESS MESSAGES
+   ============================================ */
+.auth-message {
+    padding: 1rem 1.25rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    animation: slideDown 0.4s ease-out;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.auth-message.success {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10B981;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.auth-message.error {
+    background: rgba(239, 68, 68, 0.1);
+    color: #EF4444;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   REMEMBER ME & FORGOT PASSWORD
+   ============================================ */
+.auth-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: #6B7280;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+}
+
+.remember-me input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #0D6EFD;
+    cursor: pointer;
+}
+
+.forgot-password {
+    font-size: 0.875rem;
+    color: #0D6EFD;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 250ms ease;
+}
+
+.forgot-password:hover {
+    color: #0b5ed7;
+    text-decoration: underline;
+}
+
+/* ============================================
+   LOADING STATE
+   ============================================ */
+.auth-submit-btn.loading {
+    position: relative;
+    color: transparent;
+}
+
+.auth-submit-btn.loading::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    margin-left: -10px;
+    margin-top: -10px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #FFFFFF;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 768px) {
+    .auth-container {
+        padding: 2rem 1rem;
+    }
+    
+    .auth-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .auth-header h1 {
+        font-size: 1.875rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-card {
+        padding: 1.75rem 1.25rem;
+    }
+    
+    .auth-header h1 {
+        font-size: 1.625rem;
+    }
+    
+    .auth-header p {
+        font-size: 0.9375rem;
+    }
+    
+    .auth-form input {
+        padding: 0.875rem 1rem;
+    }
+    
+    .social-auth-buttons {
+        flex-direction: column;
+    }
+}
+
+/* ============================================
+   ACCESSIBILITY IMPROVEMENTS
+   ============================================ */
+.auth-form input:focus-visible {
+    outline: 2px solid #0D6EFD;
+    outline-offset: 2px;
+}
+
+.auth-submit-btn:focus-visible {
+    outline: 2px solid #0D6EFD;
+    outline-offset: 2px;
+}
+
+/* ============================================
+   TERMS & CONDITIONS
+   ============================================ */
+.auth-terms {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.8125rem;
+    color: #9CA3AF;
+    line-height: 1.6;
+}
+
+.auth-terms a {
+    color: #0D6EFD;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.auth-terms a:hover {
+    text-decoration: underline;
+}

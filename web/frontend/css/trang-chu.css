@@ -1,0 +1,549 @@
+/* ============================================
+   TRANG CHỦ - TRAVEL WEBSITE DESIGN
+   Homepage với Hero Banner & Posts Grid
+   ============================================ */
+
+/* ============================================
+   HERO SECTION - Large Banner with Overlay
+   ============================================ */
+.hero-section {
+    position: relative;
+    background: linear-gradient(135deg, #0D6EFD 0%, #1A73E8 50%, #42A5F5 100%);
+    color: #FFFFFF;
+    text-align: center;
+    padding: 5rem 2rem;
+    margin-bottom: 3rem;
+    overflow: hidden;
+    border-radius: 0 0 20px 20px;
+}
+
+/* Decorative Wave Background */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    opacity: 0.4;
+}
+
+/* Travel Pattern Overlay */
+.hero-section::after {
+    content: '✈️ 🗺️ 🏖️ ⛰️ 🏝️ 🎒';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 8rem;
+    opacity: 0.03;
+    letter-spacing: 2rem;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.hero-section > * {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.hero-subtitle {
+    font-size: 1.375rem;
+    opacity: 0.95;
+    max-width: 750px;
+    margin: 0 auto;
+    font-weight: 400;
+    line-height: 1.7;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1s ease-out 0.2s backwards;
+}
+
+/* ============================================
+   SEARCH SECTION
+   ============================================ */
+.search-section {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    margin-bottom: 3rem;
+}
+
+.search-bar {
+    background: #FFFFFF;
+    border-radius: 14px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 16px rgba(13, 110, 253, 0.12);
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #E5E7EB;
+    transition: box-shadow 250ms ease;
+}
+
+.search-bar:hover {
+    box-shadow: 0 8px 24px rgba(13, 110, 253, 0.16);
+}
+
+.search-input {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    border: 2px solid #E5E7EB;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    background: #F8FAFB;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #0D6EFD;
+    box-shadow: 0 0 0 4px #E7F3FF;
+    background: #FFFFFF;
+}
+
+.search-input::placeholder {
+    color: #9CA3AF;
+}
+
+.search-btn {
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, #0D6EFD 0%, #1A73E8 100%);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    box-shadow: 0 2px 8px rgba(13, 110, 253, 0.3);
+}
+
+.search-btn:hover {
+    background: linear-gradient(135deg, #0b5ed7 0%, #1557c0 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(13, 110, 253, 0.4);
+}
+
+.search-btn:active {
+    transform: translateY(0);
+}
+
+/* ============================================
+   CATEGORY FILTERS - Pill Style
+   ============================================ */
+.category-filters {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    padding: 1.5rem;
+    background: #FFFFFF;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(13, 110, 253, 0.08);
+    border: 1px solid #E5E7EB;
+}
+
+.category-filter {
+    padding: 0.625rem 1.5rem;
+    background: #F0F2F5;
+    border: 2px solid transparent;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #6B7280;
+    font-family: 'Inter', sans-serif;
+    text-transform: capitalize;
+}
+
+.category-filter:hover {
+    background: #E7F3FF;
+    color: #0D6EFD;
+    border-color: #0D6EFD;
+    transform: translateY(-2px);
+}
+
+.category-filter.active {
+    background: linear-gradient(135deg, #0D6EFD 0%, #1A73E8 100%);
+    color: #FFFFFF;
+    border-color: #0D6EFD;
+    box-shadow: 0 2px 8px rgba(13, 110, 253, 0.3);
+}
+
+/* ============================================
+   POSTS SECTION
+   ============================================ */
+.posts-section {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem 3rem;
+}
+
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 2rem;
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* ============================================
+   POST CARD - Modern Travel Style (14px border-radius)
+   ============================================ */
+.post-card {
+    background: #FFFFFF;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(13, 110, 253, 0.08);
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #E5E7EB;
+    position: relative;
+}
+
+.post-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(13, 110, 253, 0.03) 0%, rgba(66, 165, 245, 0.03) 100%);
+    opacity: 0;
+    transition: opacity 300ms ease;
+    pointer-events: none;
+    border-radius: 14px;
+    z-index: 1;
+}
+
+.post-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 32px rgba(13, 110, 253, 0.20);
+    border-color: #0D6EFD;
+}
+
+.post-card:hover::before {
+    opacity: 1;
+}
+
+.post-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    background: linear-gradient(135deg, #0D6EFD 0%, #42A5F5 100%);
+    transition: transform 300ms ease;
+}
+
+.post-card:hover .post-image {
+    transform: scale(1.05);
+}
+
+.post-content {
+    padding: 1.75rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+}
+
+.post-category {
+    display: inline-block;
+    padding: 0.375rem 1rem;
+    background: #E7F3FF;
+    color: #0D6EFD;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    width: fit-content;
+    font-family: 'Inter', sans-serif;
+}
+
+.post-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: #1A1A1A;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2; /* thêm thuộc tính chuẩn */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: color 250ms ease;
+}
+
+.post-excerpt {
+    color: #6B7280;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3; /* thêm thuộc tính chuẩn */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex: 1;
+    font-family: 'Inter', sans-serif;
+}
+
+.post-card:hover .post-title {
+    color: #0D6EFD;
+}
+
+.post-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 2px solid #F0F2F5;
+    margin-top: auto;
+}
+
+.post-author {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    color: #6B7280;
+    font-size: 0.875rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.author-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0D6EFD 0%, #42A5F5 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 0.875rem;
+    flex-shrink: 0;
+    border: 2px solid #FFFFFF;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.author-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.post-meta {
+    display: flex;
+    gap: 1rem;
+    color: #9CA3AF;
+    font-size: 0.8125rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.post-stats {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: #9CA3AF;
+    font-weight: 500;
+}
+
+.post-stats span {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    transition: color 250ms ease;
+}
+
+.post-stats span:hover {
+    color: #0D6EFD;
+}
+
+/* ============================================
+   LOADING STATES
+   ============================================ */
+.loading-posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 2rem;
+}
+
+.loading-card {
+    background: #FFFFFF;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(13, 110, 253, 0.08);
+    height: 450px;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* ============================================
+   EMPTY STATE
+   ============================================ */
+.empty-state {
+    text-align: center;
+    padding: 5rem 2rem;
+    color: #6B7280;
+    background: #FFFFFF;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(13, 110, 253, 0.08);
+    border: 1px solid #E5E7EB;
+}
+
+.empty-state-icon {
+    font-size: 6rem;
+    margin-bottom: 2rem;
+    opacity: 0.3;
+    display: block;
+}
+
+.empty-state h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.875rem;
+    margin-bottom: 1rem;
+    color: #1A1A1A;
+    font-weight: 700;
+}
+
+.empty-state p {
+    margin-bottom: 2rem;
+    font-size: 1.125rem;
+    color: #6B7280;
+    line-height: 1.6;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 1024px) {
+    .posts-grid,
+    .loading-posts {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 3rem 1.5rem;
+        border-radius: 0;
+    }
+    
+    .hero-title {
+        font-size: 2.25rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.125rem;
+    }
+    
+    .search-section {
+        padding: 0 1rem;
+    }
+    
+    .search-bar {
+        flex-direction: column;
+        padding: 1.25rem;
+    }
+    
+    .search-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .category-filters {
+        padding: 1rem;
+        gap: 0.5rem;
+    }
+    
+    .posts-section {
+        padding: 0 1rem 2rem;
+    }
+    
+    .posts-grid,
+    .loading-posts {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .post-image {
+        height: 220px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.75rem;
+        letter-spacing: -0.5px;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .post-content {
+        padding: 1.25rem;
+    }
+    
+    .post-title {
+        font-size: 1.125rem;
+    }
+}

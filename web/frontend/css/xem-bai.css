@@ -1,0 +1,1114 @@
+/* ============================================
+   XEM BÀI VIẾT - TRAVEL DESIGN
+   Chi tiết bài viết với thiết kế hiện đại
+   ============================================ */
+
+.post-detail-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: block !important; /* Override grid layout from style.css for single column */
+}
+
+/* ============================================
+   POST DETAIL CARD - Main Content
+   ============================================ */
+.post-detail-card {
+    background: #FFFFFF;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(13, 110, 253, 0.08);
+    border: 1px solid #E5E7EB;
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+/* Post Header */
+.post-header {
+    padding: 2.5rem;
+    border-bottom: 2px solid #F0F2F5;
+}
+
+.post-author-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.author-avatar-large {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0D6EFD 0%, #42A5F5 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    border: 3px solid #FFFFFF;
+    box-shadow: 0 2px 8px rgba(13, 110, 253, 0.2);
+}
+
+.author-avatar-large img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.author-details {
+    flex: 1;
+}
+
+.author-details h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #1A1A1A;
+    margin-bottom: 0.25rem;
+}
+
+.author-details .post-time {
+    font-size: 0.875rem;
+    color: #6B7280;
+    font-family: 'Inter', sans-serif;
+}
+
+.post-title-large {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1A1A1A;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+.post-description {
+    color: #6B7280;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.post-image-large {
+    width: 100%;
+    max-height: 550px;
+    object-fit: cover;
+    display: block;
+    background: linear-gradient(135deg, #0D6EFD 0%, #42A5F5 100%);
+}
+
+.post-content-full {
+    padding: 2.5rem;
+    color: #1A1A1A;
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Post Meta Info */
+.post-meta-info {
+    padding: 1.5rem 2.5rem;
+    border-top: 2px solid #F0F2F5;
+    border-bottom: 2px solid #F0F2F5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    color: #6B7280;
+    font-size: 0.9375rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.post-stats-bar {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* Hide comments and shares, keep only views */
+.post-stats-bar .comments-count,
+.post-stats-bar .shares-count {
+    display: none;
+}
+
+/* Travel Dates and Cost */
+.travel-dates {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    background: #FFFFFF;
+    border-radius: 12px;
+    border: 1px solid #E5E7EB;
+    box-shadow: 0 2px 8px rgba(13, 110, 253, 0.08);
+    flex-wrap: wrap;
+    font-family: 'Inter', sans-serif;
+}
+
+.start-date,
+.end-date {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.125rem;
+    background: #F8FAFB;
+    border-radius: 10px;
+    border: 1px solid #E5E7EB;
+    font-size: 0.9375rem;
+    color: #1A1A1A;
+    font-weight: 600;
+    flex: 1;
+    min-width: 200px;
+    justify-content: center;
+    transition: all 250ms ease;
+}
+
+.start-date:hover,
+.end-date:hover {
+    background: #E7F3FF;
+    border-color: #0D6EFD;
+}
+
+.start-date::before {
+    content: "📅";
+    font-size: 1.125rem;
+}
+
+.end-date::before {
+    content: "📅";
+    font-size: 1.125rem;
+}
+
+.cost {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.125rem 1.5rem;
+    background: linear-gradient(135deg, #0D6EFD 0%, #42A5F5 100%);
+    color: #FFFFFF;
+    border-radius: 12px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 2px 8px rgba(13, 110, 253, 0.3);
+    flex: 1;
+    min-width: 200px;
+    justify-content: center;
+    transition: all 250ms ease;
+}
+
+.cost:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(13, 110, 253, 0.4);
+}
+
+.cost::before {
+    content: "💰";
+    font-size: 1.375rem;
+}
+
+/* Post Actions */
+.post-actions {
+    display: flex;
+    border-top: 2px solid #F0F2F5;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.post-action-btn {
+    flex: 1;
+    padding: 1.25rem;
+    background: none;
+    border: none;
+    color: #6B7280;
+    font-weight: 600;
+    font-size: 1.0625rem;
+    cursor: pointer;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.post-action-btn:hover {
+    background: #E7F3FF;
+    color: #0D6EFD;
+    transform: translateY(-2px);
+}
+
+.post-action-btn.active {
+    color: #0D6EFD;
+    background: #E7F3FF;
+}
+
+/* ============================================
+   LOCATION SECTION (Địa điểm, Phương tiện, Khách sạn, Đồ ăn)
+   ============================================ */
+.location-section {
+    background: #FFFFFF;
+    border-radius: 14px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 8px rgba(13, 110, 253, 0.08);
+    border: 1px solid #E5E7EB;
+    display: flex;
+    flex-direction: column;
+}
+
+.location-section h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #1A1A1A;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* Container cho các list (locationList, phuongTienList, v.v.) - Ép xếp dọc, mỗi card 1 dòng */
+#locationList,
+#phuongTienList,
+#khachSanList,
+#doAnList {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.location-card {
+    background: #F8FAFB;
+    border-radius: 10px;
+    padding: 2rem;
+    border: 1px solid #E5E7EB;
+    transition: all 250ms ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%; /* Full width, không wrap ngang */
+}
+
+.location-card:hover {
+    border-color: #0D6EFD;
+    box-shadow: 0 2px 8px rgba(13, 110, 253, 0.12);
+}
+
+/* Nhóm loại và tên địa điểm trên một dòng */
+.location-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: nowrap;
+}
+
+.location-name {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #1A1A1A;
+    font-size: 1.25rem;
+    margin: 0;
+    flex: 1;
+}
+
+.location-type {
+    display: inline-block;
+    padding: 0.375rem 0.875rem;
+    background: #E7F3FF;
+    color: #0D6EFD;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+}
+
+/* Nhóm địa chỉ và giá trên một dòng nếu có */
+.location-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.location-address {
+    color: #6B7280;
+    font-size: 1rem;
+    margin: 0;
+    flex: 1;
+    font-family: 'Inter', sans-serif;
+}
+
+.location-price {
+    color: #0D6EFD;
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin: 0;
+    flex-shrink: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.map-container {
+    width: 100%;
+    height: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 1.5rem;
+    border: 1px solid #E5E7EB;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* ============================================
+   TRAVEL INFO SECTION
+   ============================================ */
+.travel-info-section {
+    background: #FFFFFF;
+    border-radius: 14px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 8px rgba(13, 110, 253, 0.08);
+    border: 1px solid #E5E7EB;
+    display: flex;
+    flex-direction: column;
+}
+
+.travel-info-section h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #1A1A1A;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.travel-info-grid {
+    display: flex;
+    flex-direction: column !important; /* Ép dọc, override nếu JS thêm class grid */
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.travel-info-card {
+    background: #F8FAFB;
+    border-radius: 10px;
+    padding: 2rem;
+    border: 1px solid #E5E7EB;
+    transition: all 250ms ease;
+    width: 100%; /* Full width, 1 dòng/card */
+}
+
+.travel-info-card:hover {
+    border-color: #0D6EFD;
+    box-shadow: 0 2px 8px rgba(13, 110, 253, 0.12);
+}
+
+.travel-info-card h4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1A1A1A;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.travel-info-card p {
+    color: #6B7280;
+    font-size: 1rem;
+    line-height: 1.6;
+    font-family: 'Inter', sans-serif;
+}
+
+/* ============================================
+   HASHTAGS SECTION
+   ============================================ */
+.hashtags-section {
+    padding: 1.5rem 2.5rem;
+    border-top: 2px solid #F0F2F5;
+}
+
+.hashtags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.hashtag-item {
+    padding: 0.625rem 1.25rem;
+    background: #E7F3FF;
+    color: #0D6EFD;
+    border-radius: 9999px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 250ms ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.hashtag-item:hover {
+    background: #0D6EFD;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(13, 110, 253, 0.3);
+}
+
+/* ============================================
+   REACTIONS SECTION
+   ============================================ */
+.reactions-section {
+    background: #FFFFFF;
+    border-radius: 14px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 8px rgba(13, 110, 253, 0.08);
+    border: 1px solid #E5E7EB;
+}
+
+.reactions-section h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #1A1A1A;
+}
+
+.reaction-picker {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    background: #FFFFFF;
+    border-radius: 14px;
+    padding: 0.75rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid #E5E7EB;
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    z-index: 100;
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.reaction-picker-btn {
+    background: none;
+    border: none;
+    padding: 0.625rem;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 250ms ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    font-size: 1.75rem;
+}
+
+.reaction-picker-btn:hover {
+    background: #F8FAFB;
+    transform: scale(1.25);
+}
+
+.reaction-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.reaction-btn {
+    padding: 1rem 1.5rem;
+    background: #F8FAFB;
+    border: 2px solid #E5E7EB;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 250ms ease;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.reaction-btn:hover {
+    background: #E7F3FF;
+    border-color: #0D6EFD;
+    color: #0D6EFD;
+    transform: translateY(-2px);
+}
+
+.reaction-btn.active {
+    background: linear-gradient(135deg, #0D6EFD 0%, #1A73E8 100%);
+    color: #FFFFFF;
+    border-color: #0D6EFD;
+    box-shadow: 0 2px 8px rgba(13, 110, 253, 0.3);
+}
+
+.reaction-counts {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    padding-top: 1.5rem;
+    border-top: 2px solid #F0F2F5;
+}
+
+.reaction-count-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #6B7280;
+    font-size: 0.9375rem;
+    font-family: 'Inter', sans-serif;
+}
+
+/* ============================================
+   COMMENTS SECTION
+   ============================================ */
+.comments-section {
+    background: #FFFFFF;
+    border-radius: 14px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 8px rgba(13, 110, 253, 0.08);
+    border: 1px solid #E5E7EB;
+}
+
+.comments-section h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #1A1A1A;
+}
+
+.comment-item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid #F0F2F5;
+}
+
+.comment-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.comment-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0D6EFD 0%, #42A5F5 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-weight: 700;
+    flex-shrink: 0;
+    font-size: 1.125rem;
+    border: 2px solid #FFFFFF;
+    box-shadow: 0 2px 4px rgba(13, 110, 253, 0.2);
+}
+
+.comment-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.comment-content {
+    flex: 1;
+    background: #F8FAFB;
+    border-radius: 10px;
+    padding: 1.5rem;
+    border: 1px solid #E5E7EB;
+}
+
+.comment-author {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #1A1A1A;
+    font-size: 1.0625rem;
+    margin-bottom: 0.5rem;
+}
+
+.comment-text {
+    color: #1A1A1A;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.comment-time {
+    font-size: 0.8125rem;
+    color: #9CA3AF;
+    font-family: 'Inter', sans-serif;
+}
+
+.comment-form {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.comment-input-wrapper {
+    flex: 1;
+    position: relative;
+}
+
+.comment-input {
+    width: 100%;
+    padding: 1.25rem 1.5rem;
+    border: 2px solid #E5E7EB;
+    border-radius: 10px;
+    font-size: 1.0625rem;
+    resize: none;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    background: #F8FAFB;
+    font-family: 'Inter', sans-serif;
+    min-height: 60px;
+}
+
+.comment-input:focus {
+    outline: none;
+    border-color: #0D6EFD;
+    box-shadow: 0 0 0 4px #E7F3FF;
+    background: #FFFFFF;
+}
+
+.comment-submit-btn {
+    padding: 1.25rem 2.5rem;
+    background: linear-gradient(135deg, #0D6EFD 0%, #1A73E8 100%);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+    font-family: 'Inter', sans-serif;
+    box-shadow: 0 2px 8px rgba(13, 110, 253, 0.3);
+    font-size: 1.0625rem;
+}
+
+.comment-submit-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #0b5ed7 0%, #1557c0 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(13, 110, 253, 0.4);
+}
+
+.comment-submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ============================================
+   REPORT SECTION
+   ============================================ */
+.report-section {
+    background: #FFFFFF;
+    border-radius: 14px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 8px rgba(13, 110, 253, 0.08);
+    border: 1px solid #E5E7EB;
+}
+
+.report-section h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #1A1A1A;
+}
+
+.report-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.report-form .form-group {
+    margin-bottom: 0;
+}
+
+.report-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #1A1A1A;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.report-form select,
+.report-form textarea {
+    width: 100%;
+    padding: 1.25rem 1.5rem;
+    border: 2px solid #E5E7EB;
+    border-radius: 10px;
+    font-size: 1.0625rem;
+    font-family: 'Inter', sans-serif;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    background: #F8FAFB;
+    color: #1A1A1A;
+}
+
+.report-form select:focus,
+.report-form textarea:focus {
+    outline: none;
+    border-color: #EF4444;
+    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1);
+    background: #FFFFFF;
+}
+
+.report-form textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.6;
+}
+
+.char-count {
+    text-align: right;
+    font-size: 0.8125rem;
+    color: #9CA3AF;
+    margin-top: 0.5rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid #F0F2F5;
+}
+
+.btn {
+    padding: 1.25rem 2.5rem;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: 'Inter', sans-serif;
+    font-size: 1.0625rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #0D6EFD 0%, #1A73E8 100%);
+    color: #FFFFFF;
+    box-shadow: 0 2px 8px rgba(13, 110, 253, 0.3);
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: linear-gradient(135deg, #0b5ed7 0%, #1557c0 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(13, 110, 253, 0.4);
+}
+
+.btn-danger {
+    background: #EF4444;
+    color: #FFFFFF;
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+}
+
+.btn-danger:hover:not(:disabled) {
+    background: #DC2626;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(239, 68, 68, 0.4);
+}
+
+.btn-outline {
+    background: transparent;
+    color: #6B7280;
+    border: 2px solid #E5E7EB;
+}
+
+.btn-outline:hover {
+    border-color: #1A1A1A;
+    color: #1A1A1A;
+    background: #F8FAFB;
+}
+
+/* ============================================
+   SHARE SECTION
+   ============================================ */
+.share-section {
+    background: #FFFFFF;
+    border-radius: 14px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 8px rgba(13, 110, 253, 0.08);
+    border: 1px solid #E5E7EB;
+}
+
+.share-section h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #1A1A1A;
+}
+
+.share-count {
+    color: #6B7280;
+    font-size: 0.9375rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.share-options {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid #F0F2F5;
+}
+
+.share-option-btn {
+    flex: 1;
+    min-width: 160px;
+    padding: 1.5rem 1.25rem;
+    background: #F8FAFB;
+    border: 2px solid #E5E7EB;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    font-weight: 600;
+    color: #1A1A1A;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.share-option-btn:hover {
+    background: #E7F3FF;
+    border-color: #0D6EFD;
+    color: #0D6EFD;
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.16);
+}
+
+.share-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.share-textarea {
+    width: 100%;
+    padding: 1.25rem 1.5rem;
+    border: 2px solid #E5E7EB;
+    border-radius: 10px;
+    font-size: 1.0625rem;
+    resize: vertical;
+    min-height: 120px;
+    font-family: 'Inter', sans-serif;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    background: #F8FAFB;
+    line-height: 1.6;
+}
+
+.share-textarea:focus {
+    outline: none;
+    border-color: #0D6EFD;
+    box-shadow: 0 0 0 4px #E7F3FF;
+    background: #FFFFFF;
+}
+
+.share-submit-btn {
+    padding: 1.25rem 2.5rem;
+    background: linear-gradient(135deg, #0D6EFD 0%, #1A73E8 100%);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    align-self: flex-start;
+    font-family: 'Inter', sans-serif;
+    box-shadow: 0 2px 8px rgba(13, 110, 253, 0.3);
+    font-size: 1.0625rem;
+}
+
+.share-submit-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #0b5ed7 0%, #1557c0 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(13, 110, 253, 0.4);
+}
+
+.share-submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ============================================
+   LOADING & ANIMATIONS
+   ============================================ */
+.loading {
+    text-align: center;
+    padding: 3rem;
+    color: #6B7280;
+}
+
+.spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid #E5E7EB;
+    border-top: 4px solid #0D6EFD;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 1.5rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 768px) {
+    .post-detail-container {
+        padding: 1rem;
+    }
+    
+    .post-header,
+    .post-content-full {
+        padding: 1.5rem;
+    }
+    
+    .post-title-large {
+        font-size: 1.625rem;
+    }
+    
+    .post-actions {
+        flex-direction: column;
+    }
+    
+    .post-action-btn {
+        width: 100%;
+    }
+    
+    .reaction-buttons {
+        justify-content: center;
+    }
+    
+    .comment-form {
+        flex-direction: column;
+    }
+    
+    .comment-submit-btn {
+        width: 100%;
+    }
+    
+    .share-options {
+        flex-direction: column;
+    }
+    
+    .share-option-btn {
+        min-width: 100%;
+    }
+    
+    .form-actions {
+        flex-direction: column-reverse;
+    }
+    
+    .form-actions .btn {
+        width: 100%;
+    }
+
+    /* Đảm bảo dọc trên mobile */
+    #locationList,
+    #phuongTienList,
+    #khachSanList,
+    #doAnList,
+    .travel-info-grid {
+        flex-direction: column !important;
+    }
+    
+    .location-header,
+    .location-details {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .post-detail-container {
+        padding: 0.75rem;
+    }
+    
+    .post-header,
+    .post-content-full,
+    .location-section,
+    .travel-info-section,
+    .reactions-section,
+    .comments-section,
+    .report-section,
+    .share-section {
+        padding: 1.25rem;
+    }
+    
+    .post-title-large {
+        font-size: 1.375rem;
+    }
+    
+    .author-avatar-large {
+        width: 48px;
+        height: 48px;
+        font-size: 1.125rem;
+    }
+}
