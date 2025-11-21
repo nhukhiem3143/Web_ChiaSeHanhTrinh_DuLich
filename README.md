@@ -1,4 +1,4 @@
-# 🌴 Nền Tảng Blog Du Lịch  
+# 🌴 Website Chia Sẻ Trải Nhiệm và Hành Trình Du Lịch  
 Nền tảng chia sẻ kinh nghiệm du lịch toàn diện được xây dựng bằng Node.js, Express.js và MSSQL, bao gồm xác thực người dùng, quản lý nội dung, tương tác xã hội và thiết kế đáp ứng.
 
 ## 📋 Mục Lục
@@ -16,7 +16,6 @@ Nền tảng chia sẻ kinh nghiệm du lịch toàn diện được xây dựng
 - [Kiểm Thử](#kiểm-thử)
 - [Triển Khai](#triển-khai)
 - [Đóng Góp](#đóng-góp)
-- [Giấy Phép](#giấy-phép)
 - [Liên Hệ](#liên-hệ)
 
 ## 🎯 Tổng Quan
@@ -202,19 +201,6 @@ Cập nhật cài đặt kết nối cơ sở dữ liệu trong `backend/databas
    - Hoặc sử dụng extension server cục bộ trong IDE
    - Hoặc phục vụ với bất kỳ server file tĩnh nào
 
-### Chế Độ Production
-
-1. **Build Cho Production**:
-   ```bash
-   cd backend
-   npm run build  # Nếu có script build
-   ```
-
-2. **Khởi Động Server Production**:
-   ```bash
-   npm run start:prod  # Nếu có script production
-   ```
-
 ### Truy Cập Ứng Dụng
 
 - **Frontend**: Mở `http://localhost:3000` trong trình duyệt
@@ -363,10 +349,6 @@ Sử dụng công cụ như Postman hoặc Insomnia để kiểm thử endpoints
 - Cập nhật tài liệu khi cần
 - Đảm bảo tất cả kiểm thử pass trước khi submit PR
 
-## 📄 Giấy Phép
-
-Dự án này được cấp phép theo Giấy Phép ISC - xem file [LICENSE](LICENSE) để biết chi tiết.
-
 ## 📞 Liên Hệ
 
 **Người Duy Trì Dự Án**: Nguyễn Như Khiêm
@@ -377,5 +359,5 @@ Dự án này được cấp phép theo Giấy Phép ISC - xem file [LICENSE](LI
 
 ---
 
-**Được xây dựng với ❤️ dành cho những người yêu du lịch trên toàn thế giới**
+**Được xây dựng với ❤️ dành cho những người yêu du lịch**
 
