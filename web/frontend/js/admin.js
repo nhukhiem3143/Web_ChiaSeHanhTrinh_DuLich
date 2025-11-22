@@ -766,21 +766,6 @@ async function loadStats() {
                     </div>
                 </div>
             </div>
-
-            <div class="charts-container">
-                <div class="chart-card">
-                    <h3>Phân Bổ Trạng Thái Báo Cáo</h3>
-                    <div class="chart-container">
-                        <canvas id="reportsChart"></canvas>
-                    </div>
-                </div>
-                <div class="chart-card">
-                    <h3>Hoạt Động Người Dùng</h3>
-                    <div class="chart-container">
-                        <canvas id="usersChart"></canvas>
-                    </div>
-                </div>
-            </div>
         `;
 
         // Load chart data
@@ -931,64 +916,6 @@ function createUsersChart(data) {
             }
         }
     });
-}
-
-// View user details
-async function viewUser(id) {
-    // Implementation for viewing user details
-    alert('Chức năng xem chi tiết người dùng sẽ được phát triển sau');
-}
-
-// Promote user to admin
-async function promoteUser(id) {
-    if (!confirm('Bạn có chắc muốn thăng người dùng này lên admin?')) {
-        return;
-    }
-
-    try {
-        const token = localStorage.getItem('token');
-        const response = await fetch(`/api/admin/nguoi-dung/${id}/promote`, {
-            method: 'PUT',
-            headers: { 'Authorization': `Bearer ${token}` }
-        });
-
-        if (response.ok) {
-            alert('Đã thăng người dùng lên admin thành công!');
-            loadUsers();
-        } else {
-            const error = await response.json();
-            alert('Lỗi: ' + (error.message || 'Không thể thăng admin'));
-        }
-    } catch (error) {
-        console.error('Error promoting user:', error);
-        alert('Lỗi thăng admin: ' + error.message);
-    }
-}
-
-// Demote admin to user
-async function demoteUser(id) {
-    if (!confirm('Bạn có chắc muốn hạ admin này xuống user?')) {
-        return;
-    }
-
-    try {
-        const token = localStorage.getItem('token');
-        const response = await fetch(`/api/admin/nguoi-dung/${id}/demote`, {
-            method: 'PUT',
-            headers: { 'Authorization': `Bearer ${token}` }
-        });
-
-        if (response.ok) {
-            alert('Đã hạ admin xuống user thành công!');
-            loadUsers();
-        } else {
-            const error = await response.json();
-            alert('Lỗi: ' + (error.message || 'Không thể hạ admin'));
-        }
-    } catch (error) {
-        console.error('Error demoting user:', error);
-        alert('Lỗi hạ admin: ' + error.message);
-    }
 }
 
 // Ban user
