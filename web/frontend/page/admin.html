@@ -20,14 +20,28 @@
     </header>
 
     <main>
+         <!-- Admin Header Section -->
+        <div class="admin-top-box">
+            <div class="admin-top-left">
+                <img src="/uploads/1763717339776-683399711.jpg" class="admin-avatar">
+                <div>
+                    <h2 id="adminNameBox">Quản Trị Viên</h2>
+                    <p class="admin-role">@admin</p>
+                </div>
+            </div>
+            <div class="admin-top-right">
+                <p class="admin-welcome-text">Chào mừng bạn đến trang quản trị hệ thống</p>
+            </div>
+        </div>
+
         <div class="admin-container">
             <div class="admin-sidebar">
                 <h3>📊 Quản Lý</h3>
                 <ul class="admin-nav">
-                    <li><a href="#reports" class="active" onclick="showSection('reports')">🚨 Báo Cáo</a></li>
-                    <li><a href="#users" onclick="showSection('users')">👥 Người Dùng</a></li>
-                    <li><a href="#posts" onclick="showSection('posts')">📝 Bài Viết</a></li>
                     <li><a href="#stats" onclick="showSection('stats')">📈 Thống Kê</a></li>
+                    <li><a href="#posts" onclick="showSection('posts')">📝 Bài Viết</a></li>
+                    <li><a href="#users" onclick="showSection('users')">👥 Người Dùng</a></li>
+                    <li><a href="#reports" class="active" onclick="showSection('reports')">🚨 Báo Cáo</a></li>
                 </ul>
             </div>
 
@@ -139,6 +153,7 @@
                 return;
             }
         });
+
     </script>
 </body>
 </html>
