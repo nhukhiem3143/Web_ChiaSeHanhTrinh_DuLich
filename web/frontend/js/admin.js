@@ -357,7 +357,20 @@ function showSection(sectionName) {
 
 // Initialize
 document.addEventListener('DOMContentLoaded', function() {
-    loadReports();
+    // Deactivate all admin sections and nav links
+    const sections = document.querySelectorAll('.admin-section');
+    sections.forEach(section => section.classList.remove('active'));
+    const navItems = document.querySelectorAll('.admin-nav a');
+    navItems.forEach(item => item.classList.remove('active'));
+    
+    // Activate stats section and nav link
+    const statsSection = document.getElementById('stats-section');
+    if (statsSection) statsSection.classList.add('active');
+    const statsNav = document.querySelector(".admin-nav a[href='#stats']");
+    if (statsNav) statsNav.classList.add('active');
+
+    // Load stats on initial page load
+    loadStats();
 });
 
 // View post in new window
