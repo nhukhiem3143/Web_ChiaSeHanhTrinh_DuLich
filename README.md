@@ -341,16 +341,6 @@ Sử dụng công cụ như Postman hoặc Insomnia để kiểm thử endpoints
 4. Push lên nhánh (`git push origin feature/amazing-feature`)
 5. Mở Pull Request
 
-### Nguyên Tắc Phát Triển
-
-- Tuân thủ cấu hình ESLint cho phong cách code
-- Viết thông điệp commit có ý nghĩa
-- Kiểm thử thay đổi của bạn kỹ lưỡng
-- Cập nhật tài liệu khi cần
-- Đảm bảo tất cả kiểm thử pass trước khi submit PR
-
-## 📞 Liên Hệ
-
 **Người Duy Trì Dự Án**: Nguyễn Như Khiêm
 - **Email**: nhukhiem24@gmail.com
 - **GitHub**: [@nhukhiem3143](https://github.com/nhukhiem3143)
