@@ -1,6 +1,8 @@
 # 🌴 Website Chia Sẻ Trải Nhiệm và Hành Trình Du Lịch  
 Nền tảng chia sẻ kinh nghiệm du lịch toàn diện được xây dựng bằng Node.js, Express.js và MSSQL, bao gồm xác thực người dùng, quản lý nội dung, tương tác xã hội và thiết kế đáp ứng.
 
+# Link Youtube
+https://youtu.be/wK3VD_rZh2g
 ## 📋 Mục Lục
 
 - [Tổng Quan](#tổng-quan)
