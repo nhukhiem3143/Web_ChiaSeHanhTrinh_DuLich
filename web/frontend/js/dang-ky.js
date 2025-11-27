@@ -58,11 +58,15 @@ function showError(message) {
     errorDiv.className = 'message error';
     errorDiv.textContent = message;
     if (!document.getElementById('error-message')) {
-        document.querySelector('main').insertBefore(errorDiv, document.querySelector('form'));
+        document.querySelector('form').parentNode.insertBefore(errorDiv, document.querySelector('form'));
     } else {
         errorDiv.textContent = message;
     }
-    setTimeout(() => errorDiv.remove(), 5000);
+    setTimeout(() => {
+        errorDiv.style.opacity = '0';
+        setTimeout(() => errorDiv.remove(), 400);
+    }, 5000);
+
 }
 
 function showSuccess(message) {
@@ -71,7 +75,7 @@ function showSuccess(message) {
     successDiv.className = 'message success';
     successDiv.textContent = message;
     if (!document.getElementById('success-message')) {
-        document.querySelector('main').insertBefore(successDiv, document.querySelector('form'));
+        document.querySelector('form').parentNode.insertBefore(successDiv, document.querySelector('form'));
     } else {
         successDiv.textContent = message;
     }
