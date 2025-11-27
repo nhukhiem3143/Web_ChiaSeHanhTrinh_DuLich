@@ -107,7 +107,7 @@ function createReportItem(report) {
             ${report.loai_bao_cao ? `<div><strong>Loại:</strong> ${getReportTypeLabel(report.loai_bao_cao)}</div>` : ''}
         </div>
         <div class="report-actions">
-            <button class="btn-admin btn-admin-view" onclick="viewReport(${report.id_bao_cao})">Xem Chi Tiết</button>
+            <button class="btn-admin btn-admin-view" onclick="window.open('/xem-bai?id=${report.id_bai_viet}', '_blank')">Xem chi tiết bài viết</button>
             ${report.trang_thai === 'cho_xu_ly' ? `
                 <button class="btn-admin btn-admin-process" onclick="processReport(${report.id_bao_cao})">Đang Xử Lý</button>
                 <button class="btn-admin btn-admin-resolve" onclick="resolveReport(${report.id_bao_cao})">Đã Xử Lý</button>
