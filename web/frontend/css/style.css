@@ -833,3 +833,52 @@ footer p {
 .post-card {
     position: relative;
 }
+/* Khung thông báo chung */
+.message {
+    width: 100%;
+    padding: 14px 18px;
+    border-radius: 8px;
+    font-size: 15px;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: fadeIn 0.35s ease;
+    transition: opacity 0.4s ease;
+    box-sizing: border-box;
+}
+
+/* Icon trong thông báo */
+.message::before {
+    font-size: 18px;
+}
+
+/* Thông báo lỗi */
+.message.error {
+    background-color: #ffe1e1;
+    border: 1px solid #ff6b6b;
+    color: #a40000;
+    box-shadow: 0 2px 6px rgba(255, 0, 0, 0.18);
+}
+
+.message.error::before {
+    content: "❌";
+}
+
+/* Thông báo thành công */
+.message.success {
+    background-color: #e7ffe8;
+    border: 1px solid #22c55e;
+    color: #035d1b;
+    box-shadow: 0 2px 6px rgba(0, 255, 60, 0.18);
+}
+
+.message.success::before {
+    content: "✔️";
+}
+
+/* Hiệu ứng xuất hiện */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
