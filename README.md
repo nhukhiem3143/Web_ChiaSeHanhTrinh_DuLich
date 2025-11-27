@@ -11,11 +11,8 @@ Nền tảng chia sẻ kinh nghiệm du lịch toàn diện được xây dựng
 - [Cài Đặt](#cài-đặt)
 - [Cấu Hình](#cấu-hình)
 - [Cách Sử Dụng](#cách-sử-dụng)
-- [Tài Liệu API](#tài-liệu-api)
 - [Lược Đồ Cơ Sở Dữ Liệu](#lược-đồ-cơ-sở-dữ-liệu)
 - [Kiểm Thử](#kiểm-thử)
-- [Triển Khai](#triển-khai)
-- [Đóng Góp](#đóng-góp)
 - [Liên Hệ](#liên-hệ)
 
 ## 🎯 Tổng Quan
@@ -51,7 +48,6 @@ Nền Tảng Blog Du Lịch là ứng dụng web toàn diện cho phép người
 - Thiết kế đáp ứng được tối ưu cho máy tính để bàn và di động
 - UI/UX hiện đại với điều hướng trực quan
 - Quản lý tải lên và thư viện hình ảnh
-- Xác thực biểu mẫu thời gian thực
 
 ## 🛠 Công Nghệ Sử Dụng
 
@@ -62,7 +58,6 @@ Nền Tảng Blog Du Lịch là ứng dụng web toàn diện cho phép người
 - **Xác Thực**: JSON Web Tokens (JWT)
 - **Bảo Mật**: bcrypt để mã hóa mật khẩu
 - **Tải Lên File**: Multer
-- **CORS**: Chia sẻ tài nguyên cross-origin
 
 ### Frontend
 - **Markup**: HTML5
@@ -70,12 +65,6 @@ Nền Tảng Blog Du Lịch là ứng dụng web toàn diện cho phép người
 - **Scripting**: JavaScript thuần (ES6+)
 - **HTTP Client**: Fetch API
 - **Xử Lý Hình Ảnh**: API tải lên file gốc
-
-### Công Cụ Phát Triển
-- **Quản Lý Phiên Bản**: Git
-- **Quản Lý Gói**: npm
-- **Client Cơ Sở Dữ Liệu**: SQL Server Management Studio
-- **Kiểm Thử API**: Postman/Insomnia
 
 ## 📁 Cấu Trúc Dự Án
 
@@ -142,11 +131,6 @@ web/
 - **npm**: Phiên bản 8.0.0 trở lên (đi kèm với Node.js)
 - **Microsoft SQL Server**: 2017 trở lên
 - **SQL Server Management Studio**: Để quản lý cơ sở dữ liệu
-- **Git**: Để quản lý phiên bản
-
-### Yêu Cầu Mạng
-- Kết nối internet để cài đặt gói
-- Truy cập mạng cục bộ để kết nối cơ sở dữ liệu
 
 ## 📦 Cài Đặt
 
@@ -204,17 +188,7 @@ Cập nhật cài đặt kết nối cơ sở dữ liệu trong `backend/databas
 ### Truy Cập Ứng Dụng
 
 - **Frontend**: Mở `http://localhost:3000` trong trình duyệt
-- **API Base URL**: `http://localhost:3000/api`
 - **Admin Panel**: Truy cập qua xác thực người dùng
-
-## 📚 Tài Liệu API
-
-### Xác Thực
-
-Tất cả endpoints đã xác thực yêu cầu header sau:
-```
-Authorization: Bearer <jwt_token>
-```
 
 ### Endpoints Cốt Lõi
 
@@ -312,42 +286,39 @@ Authorization: Bearer <jwt_token>
 - [ ] Tải hình ảnh và tối ưu hóa
 - [ ] Điều hướng và trải nghiệm người dùng
 
-### Kiểm Thử API
+#### Trang đăng ký
+<img width="1776" height="1017" alt="Screenshot 2025-11-23 230057" src="https://github.com/user-attachments/assets/0150a0f2-c15f-4c73-a94a-a4f0862df3cd" />
 
-Sử dụng công cụ như Postman hoặc Insomnia để kiểm thử endpoints API:
+#### Trang đăng nhập
+<img width="1417" height="876" alt="Screenshot 2025-11-23 234707" src="https://github.com/user-attachments/assets/5746791c-0669-4b7f-880c-f42f5140d41f" />
 
-1. Import collection API (nếu có)
-2. Kiểm thử luồng xác thực
-3. Xác minh hoạt động CRUD cho tất cả tài nguyên
-4. Kiểm thử xử lý lỗi và trường hợp biên
+#### Trang chủ  
+<img width="1417" height="876" alt="Screenshot 2025-11-23 234707" src="https://github.com/user-attachments/assets/9cb06d65-3e99-4ed6-ac66-4ad73fda95d0" />
 
-## 🚢 Triển Khai
+#### Trang cá nhân người dùng
+<img width="1240" height="879" alt="Screenshot 2025-11-23 234826" src="https://github.com/user-attachments/assets/5c5e1742-0667-4dcf-9085-77d812583247" />
+<img width="945" height="478" alt="image" src="https://github.com/user-attachments/assets/0815dfac-233a-45af-8d8a-ae92ae95d32f" />
 
-### Danh Sách Kiểm Tra Production
+#### Đăng bài viết mới
+<img width="810" height="719" alt="image" src="https://github.com/user-attachments/assets/2fdc9394-f57c-491c-b7ee-e997fd60ec24" />  
+<img width="577" height="632" alt="image" src="https://github.com/user-attachments/assets/7aca040c-7b03-4268-837c-56125ba74f1e" />  
+<img width="568" height="708" alt="image" src="https://github.com/user-attachments/assets/60a26bc5-8104-4d2e-a8e4-38c0752b53f9" />  
 
-- [ ] Cập nhật biến môi trường cho production
-- [ ] Cấu hình cơ sở dữ liệu production
-- [ ] Thiết lập chứng chỉ SSL/TLS
-- [ ] Cấu hình reverse proxy (nginx/apache)
-- [ ] Thiết lập giám sát và ghi log
-- [ ] Cấu hình chiến lược sao lưu
-- [ ] Kiểm thử hiệu suất và khả năng mở rộng
+#### Trang quản trị viên
+<img width="1852" height="873" alt="Screenshot 2025-11-24 010649" src="https://github.com/user-attachments/assets/237f4eab-9601-423f-baa6-b934787cfdc2" />
 
-## 🤝 Đóng Góp
+##### Quản lý các bài viết
+<img width="1844" height="887" alt="Screenshot 2025-11-24 011226" src="https://github.com/user-attachments/assets/7e772343-bd04-4cd0-a56e-3c6b486a7bd2" />
 
-1. Fork repository
-2. Tạo nhánh tính năng (`git checkout -b feature/amazing-feature`)
-3. Commit thay đổi của bạn (`git commit -m 'Add amazing feature'`)
-4. Push lên nhánh (`git push origin feature/amazing-feature`)
-5. Mở Pull Request
+##### Quản lý người dùng
+<img width="1866" height="882" alt="Screenshot 2025-11-24 011232" src="https://github.com/user-attachments/assets/e5fba9d3-f7e0-4045-8e2a-aff91dec8411" />
+
+##### Quản lý báo cáo
+<img width="1871" height="965" alt="Screenshot 2025-11-24 011236" src="https://github.com/user-attachments/assets/4e2faffb-856f-4f46-8ad2-2e88608a2aad" />
 
 **Người Duy Trì Dự Án**: Nguyễn Như Khiêm
 - **Email**: nhukhiem24@gmail.com
 - **GitHub**: [@nhukhiem3143](https://github.com/nhukhiem3143)
 
 **Repository Dự Án**: [https://github.com/nhukhiem3143/Web_ChiaSeHanhTrinh_DuLich](https://github.com/nhukhiem3143/Web_ChiaSeHanhTrinh_DuLich)
-
----
-
-**Được xây dựng với ❤️ dành cho những người yêu du lịch**
 
